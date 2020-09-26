@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Frag-Example</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fvtextview">fvTextView</string>
+    <string name="what_are_you_thinking_of">what are you thinking of?</string>
+    <string name="next">Next</string>
+    <string name="back">Back</string>
+</resources>
