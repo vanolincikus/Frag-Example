@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import kotlinx.android.synthetic.main.fragment_first.*
 
 class FragmentFirst : Fragment() {
 
@@ -17,6 +16,7 @@ class FragmentFirst : Fragment() {
     private lateinit var mEditText2:TextView
     private lateinit var mEditText3:TextView
     private lateinit var mActivity: MainActivity
+//    private lateinit var myText: TextModel = TextModel()
 
 
     override fun onCreateView(
@@ -42,12 +42,15 @@ class FragmentFirst : Fragment() {
         //initialising bundle
         mButtonNext.setOnClickListener {
             val bundle = Bundle()
+            var textValues : Array<String> = arrayOf(mEditText.text.toString(),mEditText1.text.toString(),mEditText2.text.toString(),mEditText3.text.toString())
+            var myText = TextModel(textValues)
             //put strings into bundle with "key" key
-            bundle.putString("key", mEditText.text.toString())
-            bundle.putString(Util.STRING_KEY1, text1.text.toString())
-            bundle.putString(Util.STRING_KEY2, text2.text.toString())
-            bundle.putString(Util.STRING_KEY3, text3.text.toString())
+//            bundle.putString("key", mEditText.text.toString())
+//            bundle.putString(Util.STRING_KEY1, text1.text.toString())
+//            bundle.putString(Util.STRING_KEY2, text2.text.toString())
+//            bundle.putString(Util.STRING_KEY3, text3.text.toString())
             //bundle put to second fragment
+            bundle.putSerializable(Util.TEXT_KEY,myText)
             mActivity.mSecondFragment.arguments = bundle
             mActivity.setFragment(mActivity.mSecondFragment)
         }

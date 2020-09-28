@@ -29,24 +29,37 @@ class FragmentSecond : Fragment() {
         svTextView2 = view.findViewById(R.id.svTextView2)
         svTextView3 = view.findViewById(R.id.svTextView3)
 
-
+                           //one to one
        // check argument for nullability
-        if (arguments?.getString("key") != null) {
-            // adding data from argument to textView
-            mTextView.text = arguments?.getString("key")
+//        if (arguments?.getString("key") != null) {
+//            // adding data from argument to textView
+//            mTextView.text = arguments?.getString("key")
+//        }
+//        if (arguments?.getString(Util.STRING_KEY1) != null) {
+//            // adding data from argument to textView
+//            svTextView1.text = arguments?.getString(Util.STRING_KEY1)
+//        }
+//        if (arguments?.getString(Util.STRING_KEY2) != null) {
+//            // adding data from argument to textView
+//            svTextView2.text = arguments?.getString(Util.STRING_KEY2)
+//        }
+//        if (arguments?.getString(Util.STRING_KEY3) != null) {
+//            // adding data from argument to textView
+//            svTextView3.text = arguments?.getString(Util.STRING_KEY3)
+//        }
+
+        //check for nullability for the object
+        if (arguments?.getSerializable(Util.TEXT_KEY)!=null){
+            //initializing nev object from motel type, and setting int to object from bundle
+            var myText = arguments?.getSerializable(Util.TEXT_KEY) as TextModel
+            //setting values from objects array to textViews
+            mTextView.text = myText.text?.get(3)
+            svTextView1.text = myText.text?.get(2)
+            svTextView2.text = myText.text?.get(1)
+            svTextView3.text = myText.text?.get(0)
+
         }
-        if (arguments?.getString(Util.STRING_KEY1) != null) {
-            // adding data from argument to textView
-            svTextView1.text = arguments?.getString(Util.STRING_KEY1)
-        }
-        if (arguments?.getString(Util.STRING_KEY2) != null) {
-            // adding data from argument to textView
-            svTextView2.text = arguments?.getString(Util.STRING_KEY2)
-        }
-        if (arguments?.getString(Util.STRING_KEY3) != null) {
-            // adding data from argument to textView
-            svTextView3.text = arguments?.getString(Util.STRING_KEY3)
-        }
+
 
         initView(view)
         initCliks()
